@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Mehariya Welding Works | Industrial Fabrication & Canopy Experts</title>
+
+<!-- Google Fonts & Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f5;
+    scroll-behavior: smooth;
+}
+
+/* HEADER with LOGO + NAME styling */
+header {
+    background: #0a0a0a;
+    color: #fff;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ===== ROUND LOGO IMAGE STYLE ===== */
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 2px solid #ff3c3c;
+    box-shadow: 0 0 10px rgba(255,60,60,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,60,60,0.5);
+}
+
+/* Company Name Style - shown alongside logo */
+.company-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ff3c3c;
+    background: linear-gradient(135deg, #ff5e5e, #ff1a1a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #ff3c3c;
+    white-space: nowrap;
+}
+
+/* Divider between logo and name */
+.logo-divider {
+    width: 2px;
+    height: 40px;
+    background: rgba(255,60,60,0.4);
+    margin: 0 5px;
+}
+
+/* Fallback round icon container (if image fails) */
+.fallback-container {
+    display: none;
+    align-items: center;
+    gap: 12px;
+}
+
+.fallback-round {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff3c3c, #cc0000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255,60,60,0.3);
+}
+
+.fallback-round i {
+    font-size: 28px;
+    color: white;
+}
+
+.fallback-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ff3c3c;
+}
+
+nav a {
+    color: #f0f0f0;
+    margin: 0 18px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    color: #ff3c3c;
+}
+
+/* SLIDESHOW */
+.slideshow {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    animation: zoom 6s ease-in-out;
+}
+
+@keyframes zoom {
+    from {transform: scale(1);}
+    to {transform: scale(1.1);}
+}
+
+.text {
+    position: absolute;
+    bottom: 60px;
+    left: 50px;
+    color: white;
+    font-size: 28px;
+    background: rgba(0,0,0,0.7);
+    padding: 12px 25px;
+    border-radius: 5px;
+    animation: slideUp 1s;
+}
+
+@keyframes slideUp {
+    from {opacity:0; transform:translateY(40px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    padding: 15px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.prev {left:10px;}
+.next {right:10px;}
+
+.dots {
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+}
+
+.dot {
+    height:12px;
+    width:12px;
+    margin:5px;
+    background:#bbb;
+    display:inline-block;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.active {background:#ff3c3c;}
+
+/* SECTION shared */
+.section {
+    padding: 60px 40px;
+    background: white;
+    margin-bottom: 10px;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: #1e1e2f;
+    margin-bottom: 40px;
+    position: relative;
+    letter-spacing: -0.3px;
+}
+
+.section h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: #ff3c3c;
+    margin: 12px auto 0;
+    border-radius: 4px;
+}
+
+/* STATS */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background: #111;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.stats div h2 {
+    font-size: 2.5rem;
+    color: #ff3c3c;
+    margin-bottom: 8px;
+}
+
+.stats div p {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* About paragraph */
+#about p {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #2c3e50;
+}
+
+/* SERVICES SECTION */
+#services {
+    padding: 60px 40px;
+    background-color: #f8f9fc;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 45px;
+    color: #1e1e2f;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid #eef2f6;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+    border-color: #ff3c3c;
+}
+
+.icon-box {
+    width: 65px;
+    height: 65px;
+    background: rgba(255,60,60,0.12);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: #ff3c3c;
+    font-size: 1.8rem;
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.service-card p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+.learn-more {
+    font-weight: 600;
+    color: #ff3c3c;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* PROJECTS SECTION - 2:1 aspect ratio */
+.projects {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    width: 340px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.project-slider {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    background: #1a1a2e;
+}
+
+.project-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.project-slider img:first-child {
+    display: block;
+}
+
+.card p {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1a202c;
+}
+
+/* GALLERY */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.gallery .card {
+    width: 300px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.gallery .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.gallery .card img:hover {
+    transform: scale(1.03);
+}
+
+/* CONTACT SECTION */
+#contact {
+    background: #fefaf5;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+    background: #0a0a0a;
+    color: #ccc;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    padding: 14px;
+    border-radius: 50%;
+    font-size: 28px;
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    transition: 0.2s;
+    z-index: 99;
+}
+
+.whatsapp:hover {
+    transform: scale(1.08);
+    background: #20b859;
+}
+
+/* Background Logo Watermark */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="%23ff3c3c" stroke-width="3" opacity="0.04"/><path d="M100 20 L120 70 L175 75 L130 110 L145 165 L100 135 L55 165 L70 110 L25 75 L80 70 Z" fill="%23ff3c3c" opacity="0.03"/><text x="100" y="115" font-size="50" text-anchor="middle" fill="%23ff3c3c" opacity="0.03" font-weight="900">MW</text></svg>');
+    background-repeat: repeat;
+    background-size: 180px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.35;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 20px;
+    }
+    nav a {
+        margin: 0 12px;
+        font-size: 0.85rem;
+    }
+    .section h2, #services h2 {
+        font-size: 2rem;
+    }
+    .text {
+        font-size: 18px;
+        bottom: 30px;
+        left: 20px;
+        padding: 8px 18px;
+    }
+    .slideshow, .slide img {
+        height: 350px;
+    }
+    .stats div h2 {
+        font-size: 2rem;
+    }
+    .logo-img {
+        width: 45px;
+        height: 45px;
+    }
+    .company-name {
+        font-size: 1rem;
+        white-space: normal;
+        text-align: center;
+    }
+    .logo-divider {
+        height: 30px;
+    }
+}
+
+@media (max-width: 550px) {
+    .company-name {
+        font-size: 0.85rem;
+    }
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+    .fallback-round {
+        width: 40px;
+        height: 40px;
+    }
+    .fallback-round i {
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-area">
+        <!-- ROUND LOGO IMAGE - Change "my-logo.png" to your actual logo file name -->
+        <!-- The logo will automatically be displayed as a perfect circle -->
+        <img src="my-logo.png" alt="Mehariya Welding Works Logo" class="logo-img" id="mainLogo" 
+             onerror="this.style.display='none'; document.getElementById('fallbackContainer').style.display='flex'; document.querySelector('.company-name').style.display='none'; document.querySelector('.logo-divider').style.display='none';">
+        
+        <!-- Divider line between logo and name -->
+        <span class="logo-divider"></span>
+        
+        <!-- Company Name displayed alongside round logo -->
+        <span class="company-name">MEHARIYA WELDING WORKS</span>
+        
+        <!-- Fallback round container (shows if image fails to load) -->
+        <div class="fallback-container" id="fallbackContainer" style="display: none;">
+            <div class="fallback-round">
+                <i class="fas fa-fire"></i>
+            </div>
+            <span class="fallback-text">MEHARIYA WELDING WORKS</span>
+        </div>
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- MAIN SLIDESHOW -->
+<div class="slideshow">
+    <div class="slide"><img src="slide1.jpg" alt="Industrial Shed"><div class="text">Industrial Shed & Roofing Work</div></div>
+    <div class="slide"><img src="slide2.jpg" alt="Canopy Nayara"><div class="text">Canopy Work - Nayara Energy Pvt. Ltd</div></div>
+    <div class="slide"><img src="slide3.jpg" alt="Canopy Jio BP"><div class="text">Canopy Work - Jio BP</div></div>
+    <div class="slide"><img src="slide4.jpg" alt="Canopy HPCL"><div class="text">Canopy Work - HPCL</div></div>
+    <div class="slide"><img src="slide5.jpg" alt="Canopy IOCL"><div class="text">Canopy Work - IOCL</div></div>
+    <div class="slide"><img src="slide6.jpg" alt="Canopy BPCL"><div class="text">Canopy Work - BPCL</div></div>
+
+    <a class="prev" onclick="changeSlide(-1)">❮</a>
+    <a class="next" onclick="changeSlide(1)">❯</a>
+
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+    <div><h2>18+</h2><p>Years Experience</p></div>
+    <div><h2>500+</h2><p>Projects Completed</p></div>
+    <div><h2>160+</h2><p>Petrol Pump Canopy Completed</p></div>
+    <div><h2>100%</h2><p>Client Satisfaction</p></div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+    <h2>About Us</h2>
+    <p>
+        Mehariya Welding Works is a trusted name in fabrication and engineering services in Rajasthan, established in 2008. 
+        With years of hands-on experience and a strong understanding of industry requirements, we have built a reputation 
+        for delivering reliable and high-quality workmanship.<br><br>
+        We specialize in roofing structures, industrial sheds, warehouse and customized metal works including petrol pump 
+        canopy fabrication.<br><br>
+        We deliver complete solutions from design to installation ensuring quality and customer satisfaction.
+    </p>
+</div>
+
+<!-- SERVICES SECTION -->
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+        <div class="service-card">
+            <div class="icon-box"><i class="fas fa-tools"></i></div>
+            <h3>All Roofing Structures</h3>
+            <p>High-durability roofing solutions designed to withstand extreme weather conditions while maintaining structural integrity for industrial and residential builds.</p>
+            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card">
+            <div class="icon-box"><i class="fas fa-industry"></i></div>
+            <h3>PEB Shed</h3>
+            <p>Precision-engineered Pre-Engineered Buildings (PEB) that offer cost-effective, fast-track construction for warehouses, factories, and workshops.</p>
+            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card">
+            <div class="icon-box"><i class="fas fa-gas-pump"></i></div>
+            <h3>Petrol Pump Canopy</h3>
+            <p>Specialized architectural canopies tailored for gas stations, fuel stations, combining safety standards with modern aesthetics to enhance your commercial presence.</p>
+            <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<div class="section" id="projects">
+    <h2>Our Projects</h2>
+    <div class="projects">
+        <div class="card">
+            <div class="project-slider">
+                <img src="project1.jpg" class="pSlide1" alt="Dariyav Warehouse 1">
+                <img src="project1b.jpg" class="pSlide1" alt="Dariyav Warehouse 2">
+            </div>
+            <p>Dariyav Warehouse</p>
+        </div>
+        <div class="card">
+            <div class="project-slider">
+                <img src="project2.jpg" class="pSlide2" alt="JK Food Products 1">
+                <img src="project2b.jpg" class="pSlide2" alt="JK Food Products 2">
+            </div>
+            <p>JK Food Products</p>
+        </div>
+        <div class="card">
+            <div class="project-slider">
+                <img src="project3.jpg" class="pSlide3" alt="Goushala Shed 1">
+                <img src="project3b.jpg" class="pSlide3" alt="Goushala Shed 2">
+            </div>
+            <p>Goushala Shed</p>
+        </div>
+    </div>
+</div>
+
+<!-- GALLERY -->
+<div class="section" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <div class="card"><img src="g1.jpg" alt="Gallery Work 1"></div>
+        <div class="card"><img src="g2.jpg" alt="Gallery Work 2"></div>
+        <div class="card"><img src="g3.jpg" alt="Gallery Work 3"></div>
+    </div>
+</div>
+
+<!-- CONTACT with updated email -->
+<div class="section" id="contact" style="text-align:center;">
+    <h2>Contact Us</h2>
+    <p><b>📍 Address:</b><br>
+    Near Government College, Gotan Road,<br>
+    Merta City, Dist.: Nagaur (Rajasthan) - 341510</p>
+    <p><b>📞 Phone:</b> <a href="tel:+919460794656" style="color:#ff3c3c; text-decoration:none;">+91 9460794656</a></p>
+    <p><b>✉️ Email:</b> <a href="mailto:mwwmerta@gmail.com" style="color:#ff3c3c; text-decoration:none;">mwwmerta@gmail.com</a></p>
+</div>
+
+<footer>
+    <p>© 2026 Mehariya Welding Works | Crafted with precision & integrity</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919460794656" target="_blank" aria-label="WhatsApp Chat">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) slideIndex = 1;
+        if (n < 1) slideIndex = slides.length;
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        if (slides[slideIndex-1]) slides[slideIndex-1].style.display = "block";
+        if (dots[slideIndex-1]) dots[slideIndex-1].className += " active";
+    }
+
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+
+    // PROJECT SLIDER LOGIC
+    function startProjectSlider(className) {
+        let index = 0;
+        let slides = document.getElementsByClassName(className);
+        if (slides.length === 0) return;
+
+        function showNext() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            index++;
+            if (index > slides.length) {
+                index = 1;
+            }
+            if (slides[index - 1]) slides[index - 1].style.display = "block";
+        }
+        showNext();
+        setInterval(showNext, 3000);
+    }
+
+    startProjectSlider("pSlide1");
+    startProjectSlider("pSlide2");
+    startProjectSlider("pSlide3");
+    
+    // Auto-try to find logo if default fails
+    window.addEventListener('load', function() {
+        const logo = document.getElementById('mainLogo');
+        if (logo && logo.naturalWidth === 0 && logo.style.display !== 'none') {
+            const commonNames = ['logo.png', 'logo.jpg', 'logo.webp', 'logo.svg', 'mehariya-logo.png', 'company-logo.png', 'mww-logo.png', 'logo.jpeg', 'logo-circle.png'];
+            let found = false;
+            
+            function tryNext(index) {
+                if (index >= commonNames.length || found) return;
+                const testImg = new Image();
+                testImg.onload = function() {
+                    if (!found && logo.style.display !== 'none') {
+                        logo.src = commonNames[index];
+                        logo.style.display = 'block';
+                        found = true;
+                        if (document.querySelector('.company-name')) document.querySelector('.company-name').style.display = 'inline-block';
+                        if (document.querySelector('.logo-divider')) document.querySelector('.logo-divider').style.display = 'inline-block';
+                        if (document.getElementById('fallbackContainer')) document.getElementById('fallbackContainer').style.display = 'none';
+                    }
+                };
+                testImg.onerror = function() { tryNext(index + 1); };
+                testImg.src = commonNames[index];
+            }
+            tryNext(0);
+        }
+    });
+</script>
+
+<style>
+    .section h2, #services h2, #projects h2, #gallery h2, #contact h2, #about h2 {
+        font-size: 2.5rem !important;
+        font-weight: 700 !important;
+    }
+    @media (max-width: 640px) {
+        .section h2, #services h2, #projects h2, #gallery h2, #contact h2, #about h2 {
+            font-size: 1.9rem !important;
+        }
+    }
+    
+    /* Email link style */
+    #contact a[href^="mailto"]:hover {
+        text-decoration: underline !important;
+    }
+</style>
+</body>
+</html>
